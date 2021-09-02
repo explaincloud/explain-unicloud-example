@@ -1,0 +1,188 @@
+<template>
+	<view>
+		<view class="res">
+			<wg-json-view v-if="res" ref="jsonView" :fontSize="12" :collapsable="true" :obj="res"></wg-json-view>
+		</view>
+		<view class="tips">请求记录过滤器请到云函数日志查看记录内容</view>
+		<button @tap="callValuesGetValues">values.getValuesAsync</button>
+		<button @tap="callValuesGetValue">values.getValueAsync</button>
+		<button @tap="callValuesPostValue">values.postValueAsync</button>
+		<button @tap="callHomeIndex">home.index 忽略匹配测试</button>
+		<button @tap="callTestCheckTokenSuccess">身份验证成功测试（过滤器）</button>
+		<button @tap="callTestCheckTokenFail">身份验证失败测试（过滤器）</button>
+		<button @tap="callTestException">异常处理测试（中间件+过滤器）</button>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				res: null
+			}
+		},
+		methods: {
+			callValuesGetValues() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('values', 'getValuesAsync', {
+						name: 'application' // 可指定云函数名称
+					})
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callValuesGetValue() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('values', 'getValueAsync', {
+						data: {
+							id: 5
+						}
+					})
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callValuesPostValue() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('values', 'postValueAsync', {
+						data: {
+							name: 'Sansnn',
+							like: ['E', 'X', 'P', 'L', 'A', 'I', 'N']
+						}
+					})
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callHomeIndex() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('home', 'index')
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callTestCheckTokenSuccess() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('test', 'checkToken', {
+						data: {
+							token: 'Sansnn'
+						}
+					})
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callTestCheckTokenFail() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('test', 'checkToken', {
+						data: {
+							token: '3snn'
+						}
+					})
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callTestException() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('test', 'exception')
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			}
+		}
+	}
+</script>
+
+<style>
+	.res {
+		width: 100%;
+		min-height: 20vh;
+		padding: 16px;
+		box-sizing: border-box;
+		background-color: #ededed;
+	}
+
+	.tips {
+		padding: 16px;
+		box-sizing: border-box;
+		font-size: 12px;
+		color: #888888;
+	}
+
+	.ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+</style>
