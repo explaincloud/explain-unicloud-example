@@ -182,7 +182,7 @@ module.exports = (app) => {
 			service: "home"
 		}, {
 			service: "test",
-			actions: ["exception", "schema"]
+			actions: ["exception", "validator"]
 		}]
 	}]);
 

@@ -11,6 +11,7 @@
 		<button @tap="callTestCheckTokenSuccess">身份验证成功测试（过滤器）</button>
 		<button @tap="callTestCheckTokenFail">身份验证失败测试（过滤器）</button>
 		<button @tap="callTestException">异常处理测试（中间件+过滤器）</button>
+		<button @tap="callTestValidator">数据校验处理测试</button>
 	</view>
 </template>
 
@@ -150,6 +151,28 @@
 				this.res = null
 				this.$creq
 					.callFunction('test', 'exception')
+					.then(res => {
+						this.res = res.data
+					})
+					.catch(err => {
+						this.res = err.message
+					})
+					.finally(() => {
+						uni.hideLoading()
+					})
+			},
+			callTestValidator() {
+				uni.showLoading({
+					mask: true
+				})
+				this.res = null
+				this.$creq
+					.callFunction('test', 'validator', {
+						data: {
+							// id: 0
+							// id: '100'
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})

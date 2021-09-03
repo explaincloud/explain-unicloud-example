@@ -1,6 +1,7 @@
 // 需要继承抽象父类explain.filter
 
 const explain = require("explain-unicloud");
+explain.validator = require("explain-validator"); // 数据校验器
 
 module.exports = class requestFilter extends explain.filter {
 
@@ -8,6 +9,22 @@ module.exports = class requestFilter extends explain.filter {
 		let {
 			explain: _explain
 		} = this;
+		
+		// 校验请求参数
+		let serviceSchema = require(`../schemas/${_explain.request.service}.js`);
+		let actionSchema = serviceSchema && serviceSchema[_explain.request.action];
+		if (actionSchema) {
+			let validate = explain.validator.data({
+				data: _explain.request.data,
+				schema: actionSchema
+			});
+			if (validate.result.valid) {
+				// 将请求参数类型转换为JSON Schema对应类型
+				_explain.request.data = validate.data;
+			} else {
+				throw new Error(validate.errors[0]);
+			}
+		}
 
 		console.log("------------");
 		console.log("请求开始");

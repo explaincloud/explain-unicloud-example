@@ -13,6 +13,14 @@ module.exports = class test extends explain.service {
 
 	async exception() {
 		throw new Error("test.exception异常了");
+	}	
+	
+	async validator({
+		id
+	}) {
+		return {
+			id
+		}
 	}
 
 }
