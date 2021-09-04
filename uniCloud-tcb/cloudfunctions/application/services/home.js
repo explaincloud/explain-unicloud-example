@@ -16,7 +16,7 @@ module.exports = class home extends explain.service {
 		// 读取html
 		var html = fs.readFileSync(this.explain.config.baseDir + "/views/index.html").toString();
 		
-		// 一个简单的动态渲染html案例
+		// 一个简单的动态渲染html案例，高级案例请移步到mvc目录
 		html = render(html, {
 			title: "Hello,explain-unicloud!",
 			name: "Sansnn"
