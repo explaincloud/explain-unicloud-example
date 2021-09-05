@@ -1,0 +1,23 @@
+{
+  "name": "explain-creq",
+  "version": "1.0.2",
+  "description": "uniCloud.callFunction and uni.request",
+  "main": "explain-creq.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/explaincloud/explain-creq.git"
+  },
+  "keywords": [
+    "explain",
+    "creq"
+  ],
+  "author": "Sansnn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/explaincloud/explain-creq/issues"
+  },
+  "homepage": "https://github.com/explaincloud/explain-creq#readme"
+}

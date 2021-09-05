@@ -1,0 +1,25 @@
+{
+  "name": "explain-unicloud-mvc",
+  "version": "1.0.1",
+  "description": "MVC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sansnn",
+  "license": "MIT",
+  "dependencies": {
+    "explain-unicloud": "^2.0.6",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/explaincloud/explain-unicloud-mvc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/explaincloud/explain-unicloud-mvc/issues"
+  },
+  "homepage": "https://github.com/explaincloud/explain-unicloud-mvc#readme"
+}
