@@ -38,25 +38,4 @@ module.exports = (app) => {
 		}]
 	}]);
 
-	// 使用中间件示例
-	app.use(async ({
-		event: _event,
-		context: _context,
-		explain: _explain,
-		next
-	}) => {
-		// 异常处理中间件
-		try {
-			console.log("m1-0")
-			await next();
-			console.log("m1-1")
-		} catch (e) {
-			// 将响应信息改为异常信息
-			_explain.response.body = {
-				message: e.message + (_explain.request.service === "test" && _explain.request
-					.action === "exception" ? "，经过了异常处理中间件" : "")
-			}
-		}
-	});
-
 }

@@ -24,13 +24,14 @@
 		},
 		methods: {
 			callValuesGetValues() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('values', 'getValuesAsync', {
-						name: 'application' // 可指定云函数名称
+						name: 'app', // 可指定云函数名称
+						showLoading: {
+							mask: true
+						},
+						hideLoading: false // 手动关闭loading
 					})
 					.then(res => {
 						this.res = res.data
@@ -43,14 +44,14 @@
 					})
 			},
 			callValuesGetValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('values', 'getValueAsync', {
 						data: {
 							id: 5
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -59,20 +60,17 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callValuesPostValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('values', 'postValueAsync', {
 						data: {
 							name: 'Sansnn',
 							like: ['E', 'X', 'P', 'L', 'A', 'I', 'N']
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -81,36 +79,31 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callHomeIndex() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.callFunction('home', 'index')
+					.callFunction('home', 'index', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callTestCheckTokenSuccess() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('test', 'checkToken', {
 						data: {
 							token: 'Sansnn'
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -119,19 +112,16 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callTestCheckTokenFail() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('test', 'checkToken', {
 						data: {
 							token: '3snn'
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -140,37 +130,32 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callTestException() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.callFunction('test', 'exception')
+					.callFunction('test', 'exception', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			callTestValidator() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.callFunction('test', 'validator', {
 						data: {
 							// id: 0
 							// id: '100'
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -178,9 +163,6 @@
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			}
 		}

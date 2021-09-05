@@ -1,7 +1,7 @@
 {
   "id": "explain-unicloud",
   "displayName": "explain-unicloud云函数开发框架",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "快速、极简的uniCloud云函数开发框架。已支持云函数URL化，已支持RESTful。",
   "keywords": [
     "explain",

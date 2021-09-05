@@ -20,7 +20,7 @@
 </template>
 
 <script>
-	const uniCloudUrl = 'https://7fcb278c-f2cc-4339-8802-f9c49cf5886e.bspapp.com/http/app'
+	const uniCloudUrl = 'https://tcb-e386czuna1dv2wib7e6bd-d064f3.service.tcloudbase.com/http/app'
 
 	export default {
 		data() {
@@ -30,15 +30,13 @@
 		},
 		methods: {
 			getValues() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.request('api/values', 'get', {
-						extend: {
-							// 通过拦截器可以设置baseUrl
-							baseUrl: uniCloudUrl
+						// 通过拦截器可以设置baseUrl
+						baseUrl: uniCloudUrl,
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -47,37 +45,32 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			getValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/5', 'get')
+					.request('api/values/5', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			postValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.request('api/values', 'post', {
 						data: {
 							name: 'Sansnn',
 							like: ['explain-unicloud', 'explain-admin']
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -86,20 +79,17 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			putValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
 					.request('api/values/5', 'put', {
 						data: {
 							name: 'Sansnn',
 							like: ['explain1', 'explain2', 'explain3']
+						},
+						showLoading: {
+							mask: true
 						}
 					})
 					.then(res => {
@@ -108,110 +98,95 @@
 					.catch(err => {
 						this.res = err.message
 					})
-					.finally(() => {
-						uni.hideLoading()
-					})
 			},
 			deleteValue() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/5', 'delete')
+					.request('api/values/5', 'delete', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			checkValueIsExists() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/exists/5', 'get')
+					.request('api/values/exists/5', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			getValuesByTypeAndColumn() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/new/10', 'get')
+					.request('api/values/new/10', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			getValueByYearAndMonthAndDay() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/2020/02/28', 'get')
+					.request('api/values/2020/02/28', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			rpmp() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/2020-02-28', 'get')
+					.request('api/values/2020-02-28', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			mix() {
-				uni.showLoading({
-					mask: true
-				})
 				this.res = null
 				this.$creq
-					.request('api/values/date-2020-02-28/time:19:30:00', 'get')
+					.request('api/values/date-2020-02-28/time:19:30:00', 'get', {
+						showLoading: {
+							mask: true
+						}
+					})
 					.then(res => {
 						this.res = res.data
 					})
 					.catch(err => {
 						this.res = err.message
-					})
-					.finally(() => {
-						uni.hideLoading()
 					})
 			},
 			postRoot() {
