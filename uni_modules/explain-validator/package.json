@@ -1,12 +1,15 @@
 {
   "id": "explain-validator",
-  "displayName": "explain-validator",
-  "version": "1.0.0",
-  "description": "explain-validator",
+  "displayName": "explain扩展模块-explain-validator",
+  "version": "1.0.1",
+  "description": "explain扩展模块，主要用于云函数请求数据校验。",
   "keywords": [
-    "explain-validator"
+    "explain",
+    "explain扩展",
+    "数据校验",
+    "JSONSchema"
 ],
-  "repository": "",
+  "repository": "https://github.com/explaincloud/explain-validator",
   "engines": {
     "HBuilderX": "^3.1.0"
   },
@@ -27,19 +30,19 @@
       "qq": ""
     },
     "declaration": {
-      "ads": "",
-      "data": "",
-      "permissions": ""
+      "ads": "无",
+      "data": "无",
+      "permissions": "无"
     },
-    "npmurl": ""
+    "npmurl": "https://www.npmjs.com/package/explain-validator"
   },
   "uni_modules": {
     "dependencies": [],
     "encrypt": [],
     "platforms": {
       "cloud": {
-        "tcb": "u",
-        "aliyun": "u"
+        "tcb": "y",
+        "aliyun": "y"
       },
       "client": {
         "App": {

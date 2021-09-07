@@ -1,3 +1,6 @@
+## 2.0.6（2021-09-07）
+【修复】未配置中间件的情况下导致无法访问到云函数方法  
+【调整】现已将cloud.js重新封装为`explain-creq`，地址：[https://github.com/explaincloud/explain-creq](https://github.com/explaincloud/explain-creq)，cloud.js已从当前插件中移除
 ## 2.0.4（2021-08-19）
 【新增】中间件的使用
 【新增】云函数中`explain.request`可以获取请求信息，详情见`基类说明`->`explain对象`
