@@ -42,7 +42,7 @@
     "platforms": {
       "cloud": {
         "tcb": "y",
-        "aliyun": "y"
+        "aliyun": "n"
       },
       "client": {
         "App": {
