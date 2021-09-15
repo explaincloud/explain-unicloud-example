@@ -22,5 +22,10 @@ module.exports = class test extends explain.service {
 			id
 		}
 	}
+	
+	async testEvent() {
+		console.log('event', this.event)
+		console.log('explain.request', this.explain.request)
+	}
 
 }

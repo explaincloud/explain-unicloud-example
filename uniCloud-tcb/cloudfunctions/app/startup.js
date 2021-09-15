@@ -125,6 +125,10 @@ module.exports = (app) => {
 			route: "checktoken",
 			httpMethod: ["GET", "POST"],
 			action: "checkToken"
+		}, {
+			route: "testevent",
+			httpMethod: ["GET", "POST"],
+			action: "testEvent"
 		}]
 	}]);
 
