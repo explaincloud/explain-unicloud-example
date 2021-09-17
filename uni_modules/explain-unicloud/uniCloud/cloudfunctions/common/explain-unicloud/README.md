@@ -48,7 +48,7 @@ const explain = require("explain-unicloud");
 exports.main = async (event, context) => explain.run({
 	event,
 	context,
-	(app) => {
+	startup: (app) => {
 		app.init({baseDir: __dirname});
 	}
 });
@@ -105,7 +105,7 @@ const explain = require("explain-unicloud");
 exports.main = async (event, context) => explain.run({
 	event,
 	context,
-	(app) => {
+	startup: (app) => {
 		app.init({baseDir: __dirname});
 		
 		// 批量添加路由
