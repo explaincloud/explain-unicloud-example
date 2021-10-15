@@ -129,6 +129,10 @@ module.exports = (app) => {
 			route: "testevent",
 			httpMethod: ["GET", "POST"],
 			action: "testEvent"
+		}, {
+			route: "testgetroutedata/{code}",
+			httpMethod: ["GET", "POST"],
+			action: "testGetRouteData"
 		}]
 	}]);
 
@@ -186,7 +190,7 @@ module.exports = (app) => {
 			service: "home"
 		}, {
 			service: "test",
-			actions: ["exception", "validator"]
+			actions: ["exception", "validator", "testGetRouteData"]
 		}]
 	}]);
 
