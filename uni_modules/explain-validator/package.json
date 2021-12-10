@@ -1,7 +1,7 @@
 {
   "id": "explain-validator",
   "displayName": "explain扩展模块-explain-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "explain扩展模块，主要用于云函数请求数据校验。",
   "keywords": [
     "explain",
@@ -72,6 +72,10 @@
         "快应用": {
           "华为": "u",
           "联盟": "u"
+        },
+        "Vue": {
+            "vue2": "y",
+            "vue3": "u"
         }
       }
     }
